@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #a40000;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+.status {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.service {
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.service h3 {
+    margin: 0 0 10px 0;
+    color: #a40000;
+}
+
+a {
+    color: #a40000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+button {
+    padding: 8px 15px;
+    margin: 5px;
+    background: #a40000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
