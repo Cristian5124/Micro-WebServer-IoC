@@ -83,6 +83,8 @@ mvn -version
    http://localhost:8080
    ```
 
+   ![Página Principal](src/main/resources/static/Pictures/index.png)
+
 ## Ejemplos de Uso
 
 ### Controlador Básico
@@ -167,6 +169,20 @@ GET http://localhost:8080/greeting?name=Cristian
 GET http://localhost:8080/info
 GET http://localhost:8080/counter
 ```
+
+**Capturas de pantalla de los endpoints en Postman:**
+
+![Postman Endpoint 1](src/main/resources/static/Pictures/Postman1.png)
+
+![Postman Endpoint 2](src/main/resources/static/Pictures/Postman2.png)
+
+![Postman Endpoint 3](src/main/resources/static/Pictures/Postman3.png)
+
+![Postman Endpoint 4](src/main/resources/static/Pictures/Postman4.png)
+
+![Postman Endpoint 5](src/main/resources/static/Pictures/Postman5.png)
+
+![Postman Endpoint 6](src/main/resources/static/Pictures/Postman6.png)
 
 ## Estructura del Proyecto
 
