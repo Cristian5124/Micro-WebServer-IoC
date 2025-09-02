@@ -7,34 +7,40 @@ Un servidor web ligero con framework IoC construido en Java utilizando reflexió
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Build](https://img.shields.io/badge/Build-Passing-brightgreen.svg)
 
-## 🌟 Características
+## Características
 
-- **🌐 Servidor HTTP Propio**: Implementación desde cero sin dependencias externas
-- **🔄 Framework IoC**: Contenedor de inversión de control usando Java Reflection API
-- **📝 Anotaciones Personalizadas**: `@RestController`, `@GetMapping`, `@RequestParam`
-- **🔍 Descubrimiento Automático**: Escaneo automático de componentes en el classpath
-- **📊 Servicio de Archivos Estáticos**: HTML, CSS, JavaScript, imágenes PNG y JPEG
-- **⚡ Parámetros de Consulta**: Soporte completo con valores por defecto
-- **🎯 Inyección de Dependencias**: Carga dinámica de POJOs como controladores
+**Servidor HTTP**: Implementación sin dependencias externas
 
-## 🏗️ Arquitectura
+**Framework IoC**: Contenedor de inversión de control usando Java Reflection API
+
+**Anotaciones Personalizadas**: `@RestController`, `@GetMapping`, `@RequestParam`
+
+**Descubrimiento Automático**: Escaneo automático de componentes en el classpath
+
+**Servicio de Archivos Estáticos**: HTML, CSS, JavaScript, imágenes PNG y JPEG
+
+**Parámetros de Consulta**: Soporte completo con valores por defecto
+
+**Inyección de Dependencias**: Carga dinámica de POJOs como controladores
+
+## Arquitectura
 
 El framework sigue una arquitectura modular con clara separación de responsabilidades:
 
 ```
 ┌─────────────────────┐    ┌─────────────────┐    ┌──────────────────┐
-│  MicroWebServerIoC  │───▶│   HttpServer    │───▶│ RequestDispatcher│
+│  MicroWebServerIoC  │───▶│   HttpServer   │───▶│ RequestDispatcher│
 │   (Entry Point)     │    │ (Socket Layer)  │    │ (Route Handling) │
 └─────────────────────┘    └─────────────────┘    └──────────────────┘
                                     │
                                     ▼
                           ┌─────────────────-┐    ┌──────────────────┐
-                          │SimpleIoCContainer│───▶│   Annotations    │
+                          │SimpleIoCContainer│───▶│   Annotations   │
                           │ (IoC Framework)  │    │ (@RestController)│
                           └─────────────────-┘    └──────────────────┘
 ```
 
-## 🚀 Inicio Rápido
+## Inicio Rápido
 
 ### Prerrequisitos
 
@@ -77,7 +83,7 @@ mvn -version
    http://localhost:8080
    ```
 
-## 💻 Ejemplos de Uso
+## Ejemplos de Uso
 
 ### Controlador Básico
 
@@ -117,7 +123,7 @@ public class GreetingController {
 }
 ```
 
-## 🌐 API Endpoints
+## API Endpoints
 
 El framework viene con varios endpoints preconfigurados para demostración:
 
@@ -126,12 +132,12 @@ El framework viene con varios endpoints preconfigurados para demostración:
 | GET | `/` | Página principal del framework | `http://localhost:8080/` |
 | GET | `/api` | Interfaz de API principal | `http://localhost:8080/api` |
 | GET | `/greeting` | Servicio de saludo básico | `http://localhost:8080/greeting` |
-| GET | `/greeting?name=Juan` | Saludo personalizado | `http://localhost:8080/greeting?name=Juan` |
+| GET | `/greeting?name=Cristian` | Saludo personalizado | `http://localhost:8080/greeting?name=Cristian` |
 | GET | `/info` | Información del framework | `http://localhost:8080/info` |
 | GET | `/counter` | Contador de requests | `http://localhost:8080/counter` |
-| GET | `/static/*` | Archivos estáticos | `http://localhost:8080/index.html` |
+| GET | `/static/*` | Archivos estáticos | `http://localhost:8080/test.html` |
 
-## 🧪 Testing
+## Testing
 
 ### Ejecutar Tests Unitarios
 
@@ -162,7 +168,7 @@ GET http://localhost:8080/info
 GET http://localhost:8080/counter
 ```
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 Micro-WebServer-IoC/
@@ -195,16 +201,21 @@ Micro-WebServer-IoC/
 └── README.md                              # Este archivo
 ```
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
-- **[Java 11+](https://openjdk.org/)** - Lenguaje de programación con características modernas
-- **[Maven](https://maven.apache.org/)** - Gestión de dependencias y automatización de build
-- **[JUnit 4](https://junit.org/junit4/)** - Framework de testing unitario
-- **Java Reflection API** - Para descubrimiento dinámico de componentes
-- **Java Annotations** - Para configuración declarativa
-- **Socket Programming** - Para implementación del servidor HTTP
+**[Java 11+](https://openjdk.org/)** - Lenguaje de programación con características modernas
 
-## 🚀 Despliegue
+**[Maven](https://maven.apache.org/)** - Gestión de dependencias y automatización de build
+
+**[JUnit 4](https://junit.org/junit4/)** - Framework de testing unitario
+
+**Java Reflection API** - Para descubrimiento dinámico de componentes
+
+**Java Annotations** - Para configuración declarativa
+
+**Socket Programming** - Para implementación del servidor HTTP
+
+## Despliegue
 
 ### Desarrollo Local
 ```cmd
@@ -220,15 +231,7 @@ REM Ejecutar el servidor
 java -cp target/micro-webserver-ioc-1.0.0.jar co.edu.escuelaing.microserver.MicroWebServerIoC
 ```
 
-## 📈 Características Técnicas
-
-- **Tiempo de inicio**: < 2 segundos
-- **Huella de memoria**: ~30MB (overhead mínimo de JVM)
-- **Requests concurrentes**: Manejo secuencial (no concurrente según especificación)
-- **Servicio de archivos**: Entrega eficiente con detección automática de MIME types
-- **Puerto por defecto**: 8080
-
-## 🔧 Configuración
+## Configuración
 
 El framework puede ser personalizado:
 
@@ -242,24 +245,31 @@ container.registerController("com.mi.paquete.MiControlador");
 // Archivos estáticos se sirven desde src/main/resources/static/
 ```
 
-## 🎯 Patrones de Diseño Implementados
+## Patrones de Diseño Implementados
 
-- **🔄 Dependency Injection**: Framework IoC para gestión automática de dependencias
-- **📋 Single Responsibility**: Cada clase tiene una responsabilidad específica
-- **🏭 Factory Pattern**: Creación dinámica de instancias de controladores
-- **🎯 Strategy Pattern**: Dispatching de requests a handlers apropiados
-- **🔍 Observer Pattern**: Detección automática de componentes anotados
+**Dependency Injection**: Framework IoC para gestión automática de dependencias
 
-## 🔬 Uso de Java Reflection
+**Single Responsibility**: Cada clase tiene una responsabilidad específica
+
+**Factory Pattern**: Creación dinámica de instancias de controladores
+
+**Strategy Pattern**: Dispatching de requests a handlers apropiados
+
+**Observer Pattern**: Detección automática de componentes anotados
+
+## Uso de Java Reflection
 
 El framework hace uso extensivo de la API de Reflection de Java:
 
-- **Escaneo de clases**: Búsqueda automática de clases anotadas
-- **Introspección de métodos**: Análisis de métodos anotados con `@GetMapping`
-- **Invocación dinámica**: Llamada de métodos de controlador en tiempo de ejecución
-- **Análisis de parámetros**: Procesamiento automático de `@RequestParam`
+**Escaneo de clases**: Búsqueda automática de clases anotadas
 
-## 📝 Desarrollo de Nuevos Controladores
+**Introspección de métodos**: Análisis de métodos anotados con `@GetMapping`
+
+**Invocación dinámica**: Llamada de métodos de controlador en tiempo de ejecución
+
+**Análisis de parámetros**: Procesamiento automático de `@RequestParam`
+
+## Desarrollo de Nuevos Controladores
 
 Para agregar nuevos controladores:
 
@@ -288,35 +298,21 @@ Para agregar nuevos controladores:
 
 4. **El framework los descubrirá automáticamente** al arrancar
 
-## ⚠️ Limitaciones Actuales
 
-- **Solo requests GET**: Implementación limitada a método GET HTTP
-- **Sin concurrencia**: Manejo secuencial según especificación del taller
-- **Tipos de retorno**: Limitado a String (HTML generado dinámicamente)
-- **MIME types básicos**: Soporte para HTML, CSS, JS, PNG, JPG
-- **Sin persistencia**: No incluye base de datos o almacenamiento
+## Razón de Ser
 
-## 🎓 Propósito Educativo
+Este proyecto fue desarrollado como parte del curso AREP (Arquitecturas Empresariales) para demostrar:
 
-Este proyecto fue desarrollado como parte del curso **AREP (Arquitecturas Empresariales)** para demostrar:
+Uso avanzado de Java Reflection API
+Implementación de anotaciones personalizadas
+Creación de un framework IoC básico
+Patrones de diseño empresariales
+Programación con sockets a bajo nivel
 
-- Uso avanzado de **Java Reflection API**
-- Implementación de **anotaciones personalizadas**
-- Creación de un **framework IoC básico**
-- **Patrones de diseño empresariales**
-- **Programación con sockets** a bajo nivel
-
-## 📄 Licencia
+## Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## 👨‍💻 Autor
+## Autor
 
-- **Estudiante AREP** - *Desarrollo inicial* - [GitHub](https://github.com/)
-
-## 🙏 Agradecimientos
-
-- Inspirado en frameworks modernos como Spring Boot
-- Desarrollado como parte del programa AREP
-- Agradecimientos a la comunidad Java por excelente documentación
-- Reconocimiento especial a los patrones de arquitectura empresarial que hacen el código mantenible y extensible
+**Cristian David Polo Garrido** - Desarrollador - [GitHub](https://github.com/Cristian5124)
